@@ -17,10 +17,9 @@ class CreateUsersTable extends Migration
             $table->increments('user_id');
             $table->string('username',40);
             $table->string('email',160);
-            $table->string('password',40);
+            $table->string('password',60);
             $table->string('school',60)->nullable();
             $table->string('remember_token',100)->nullable();
-            $table->integer('level');
             $table->char('user_type', 1);
             $table->timestamps();
         });
