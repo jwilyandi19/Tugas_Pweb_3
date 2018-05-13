@@ -25,4 +25,7 @@ class HomeController extends Controller
     {
         return view('home');
     }
+    public function hehe(){
+        return redirect('home')->with('status','tes tes');
+    }
 }

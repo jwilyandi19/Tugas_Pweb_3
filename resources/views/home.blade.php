@@ -14,7 +14,12 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    @if (Auth::user()->user_type=='S')
+                        You are a student.
+                    @elseif (Auth::user()->user_type=='T')
+                        You are a teacher.
+                    @endif
+
                 </div>
             </div>
         </div>
