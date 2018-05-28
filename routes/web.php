@@ -15,8 +15,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/login','AuthController@index')->name('login');
-Route::post('/login','AuthController@login');
+Route::get('/login','AuthController@index');
+Route::post('/login','AuthController@login')->name('login');
 Route::get('/home','AuthController@home');
 Route::get('/logout','AuthController@logout')->name('logout');
 Route::get('/register','AuthController@register')->name('register');
@@ -31,8 +31,13 @@ Route::group(['middleware' => 'App\Http\Middleware\StudentMiddleware'], function
 
 Route::group(['middleware' => 'App\Http\Middleware\TeacherMiddleware'], function() {
 
-	Route::get('/teacher','AuthController@teacher');
-
+	Route::get('/create','TeacherController@create');
+	Route::post('/create/{contest}','TeacherController@store');
+	Route::get('/create/{contest}/question','TeacherController@createquestion');
+	Route::get('/contest','TeacherController@show');
+	Route::post('/contest/{contest}','TeacherController@editcontest');
+	Route::get('/contest/show/{contest}','TeacherController@showcontest');
+	Route::post('/contest/{contest}/{question}','TeacherController@editquestion');
 });
 
 Route::get('/unauthorized','AuthController@unauthorized');
