@@ -37,6 +37,26 @@ class TeacherController extends Controller
     }
 
     public function createquestion() {
+    	return view('teacher.createquestion');
+    }
+
+    public function showquestion() {
     	
+    }
+
+    public function show() {
+    	return view('teacher.contest');
+    }
+
+    public function editcontest() {
+
+    }
+
+    public function showcontest() {
+
+    }
+
+    public function editquestion() {
+
     }
 }
