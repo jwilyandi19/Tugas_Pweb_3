@@ -1,1 +1,1 @@
-<p>Teacher only</p>
+<a href="/teacher/create">Create Contest</a>
