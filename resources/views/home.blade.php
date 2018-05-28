@@ -1,15 +1,18 @@
-<!DOCTYPE HTML>
-<head>
+@extends('layouts.app')
 
+@section('content')
+    @if(session('status'))
+    {{session('status')}}
+    <p>You are logged in</p>
+    @endif
+    <a href="{{route('logout')}}">
 
-</head>
+    Logout</a> 
+    {{Auth::user()->username}}
+    @if(Auth::user()->user_type=="S")
+        Student
+    @elseif(Auth::user()->user_type=="T")
+        Teacher
+    @endif
 
-
-
-<body>
-		<h1>You are logged in</h1>
-
-		<a href="/logout">Logout</a>
-
-		
-</body>
+@endsection

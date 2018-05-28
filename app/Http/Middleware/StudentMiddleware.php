@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Http\Middleware;
-use Illuminate\Http\Response;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
-class Teacher
+class StudentMiddleware
 {
     /**
      * Handle an incoming request.
@@ -16,10 +16,11 @@ class Teacher
      */
     public function handle($request, Closure $next)
     {
-        
-        if($request->user() && $request->user()->user_type != 'T' ) {
-            return new Response(view('unauthorized')->with('role','Teacher'));
+
+        if(Auth::user()->user_type!='S') {
+            return redirect('unauthorized')->with('status','Student');
         }
+
         return $next($request);
     }
 }
