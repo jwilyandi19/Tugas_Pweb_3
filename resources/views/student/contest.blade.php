@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-    @if(session('status'))
-    {{session('status')}}
-    <p>You are logged in</p>
-    @endif
-    <a href="{{route('logout')}}">
+  <div class="container">
+    <h2>List Contest : </h2>
+    <div class="list-group">
+      @foreach($name as $cour)
+      <a href="#" class="list-group-item">{{$cour->cour_id}}. {{$cour->cour_name}}</a>
+      @endforeach
 
-    Logout</a>
+    </div>
 
-    <p>This displays contest available</p>
-
+  </div>
 
 @endsection
