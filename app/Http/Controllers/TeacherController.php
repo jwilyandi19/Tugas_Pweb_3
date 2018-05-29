@@ -53,34 +53,19 @@ class TeacherController extends Controller
     }
 
     public function storequestion(Request $request) {
-    	$question = $request->all();
-    	$questnum = intval($question['questnum']);
-    	$flag = 0;
+    	$quest = $request->only("questnum");
+    	$questnum = intval($quest['questnum']);
     	for($i=1; $i<=$questnum; $i++) {
-    		$validator = Validator::make($question,[
-    			"question['$i']" => 'required',
-    			"optiona['$i']" => 'required',
-    			"optionb['$i']" => 'required',
-    			"optionc['$i']" => 'required',
-    			"optiond['$i']" => 'required',
-    			"trueanswer['$i']" => 'required|regex:[A-D]|max:1',
-
-    		]);
-    		if($validator->fails()) {
-    			$flag = 1;
-    			return redirect()->back()->withErrors($validator);
-    		}
-
-    		if($flag == 1) {
+    	$question = $request->only("question[$i]","optiona[$i]","optionb[$i]","optionc[$i]","optiond[$i]","trueanswer[$i]");
+    	dd($question);
     		$create = Question::create([
-    			'quest_text' => $question["question['$i']"];
-    			'opt_a' = $question["optiona['$i']"];
-    			'opt_b' = $question["optionb['$i']"];
-    			'opt_c' = $question["optionc['$i']"];
-    			'opt_d' = $question["optiond['$i']"];
-    			'true_answer' = $question["trueanswer['$i']"];
+    			'quest_text' => $question["question[$i]"],
+    			'opt_a' => $question["optiona[$i]"],
+    			'opt_b' => $question["optionb[$i]"],
+    			'opt_c' => $question["optionc[$i]"],
+    			'opt_d' => $question["optiond[$i]"],
+    			'true_answer' => $question["trueanswer[$i]"],
     		]);
-    		}
 
     	}
 
