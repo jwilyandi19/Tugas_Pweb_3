@@ -1,12 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<form method = "POST" action = "{{URL::to('/create/created')}}">
-
-	{{ csrf_field() }}
-
-
-	<div>
+	<!-- <div class="container">
 	<label for="cour_name">Course Name</label>
 	<input id="cour_name" type="text" name="cour_name">
 	@if ($errors->has('cour_name'))
@@ -38,9 +33,44 @@
 
     <div>
     <button type="submit">Create Course</button>
-    </div>
+    </div> -->
 
-    </form>
+	<div class="container">
+		<form method = "POST" action = "{{URL::to('/create/created')}}">
+
+		{{ csrf_field() }}
+
+	    <div class="form-group">
+	      <label for="contest">Nama kontes (wajib diisi)</label>
+	      <input type="contest" class="form-control input-lg" id="contest" placeholder="" name="contest" required>
+					@if ($errors->has('contest'))
+										<span>
+												<strong>{{ $errors->first('contest') }}</strong>
+										</span>
+					@endif
+	    </div>
+	    <div class="form-group">
+	      <label for="description">Deskripsi kontes (wajib diisi)</label>
+	      <input type="description" class="form-control input-lg" id="description" placeholder="Ex: A #math #blindcontest to introduce the basics of #algebra to #grade8" name="description" required >
+					@if ($errors->has('description'))
+										<span>
+												<strong>{{ $errors->first('description') }}</strong>
+										</span>
+					@endif
+			</div>
+	    <div class="form-group">
+	      <label for="number">Jumlah pertanyaan (max 10)</label>
+	      <input type="number" class="form-control input-lg" id="number" placeholder="" name="number">
+					@if ($errors->has('number'))
+										<span>
+												<strong>{{ $errors->first('number') }}</strong>
+										</span>
+					@endif
+	    </div>
+	    <button type="submit" class="wrapper button btn">Submit</button>
+	  </form>
+	</div>
+
+
 
 @endsection
-	

@@ -1,0 +1,209 @@
+.button-rightside{
+	float:right;
+	position:absolute;
+     top:0;
+     right:0;
+
+}
+.button-rightside button, #descbutton button,#descbutton input, #idlogin button, #idsignup button, .profile-table button{
+	margin-right: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+	padding: 5px 10px;
+	margin-bottom: 10px;
+	background-color: #11afa8;
+}
+.profile-table button{
+    text-align: center;
+    justify-content: center;
+}
+.button-rightside button:hover{
+	transition: transform 0.5s ease;
+	transform: scale(1.2);
+
+}
+.button-rightside h5{
+	color: black;
+	margin: 3px 0 0 0;
+	font-size: 125%;
+	display: block;
+}
+input[type=text], input[type=password], input[type=number], input[type=tel],input[type=email] {
+    width: 94.5%;
+    padding: 10px 20px;
+    margin: 8px 10px;
+    display: list-item;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+.wrapper {
+  display: block;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+.button {
+
+  text-align: center;
+  text-decoration: none;
+  color: $color;
+  border: 2px solid $color;
+  font-size: 24px;
+  display: inline-block;
+  border-radius: 0.3em;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: "";
+    background-color: rgba(255,255,255,0.5);
+    height: 100%;
+    width: 3em;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: -4.5em;
+    transform: skewX(-45deg) translateX(0);
+    transition: none;
+  }
+  &:hover {
+    background-color: $color;
+    color: #fff;
+    border-bottom: 4px solid darken($color, 10%);
+    &:before {
+      transform: skewX(-45deg) translateX(13.5em);
+     transition: all 0.5s ease-in-out;
+    }
+  }
+}
+
+.wrapper {
+  display: block;
+  position: absolute;
+}
+.button {
+  padding: 0.75em 2em;
+  text-align: center;
+  text-decoration: none;
+  color: $color;
+  border: 2px solid $color;
+  font-size: 24px;
+  display: inline-block;
+  border-radius: 0.3em;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  &:before {
+    content: "";
+    background-color: #b30000
+    height: 100%;
+    width: 3em;
+    display: block;
+
+    top: 0;
+    left: -4.5em;
+    transform: skewX(-45deg) translateX(0);
+    transition: none;
+  }
+  &:hover {
+    background-color: $color;
+    color: #fff;
+    border-bottom: 4px solid darken($color, 10%);
+    &:before {
+      transform: skewX(-45deg) translateX(13.5em);
+     transition: all 0.5s ease-in-out;
+    }
+  }
+}
+
+.wrapper {
+  display: block;
+  position: relative;
+ left: 10%
+
+
+
+}
+
+.button {
+  padding: 0.75em 2em;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  border: 2px solid #052026;
+  background-color:rgba(0,0,255,0.3);
+  font-size: 20px;
+  display: inline-block;
+  border-radius: 0.3em;
+  transition: all 0.2s ease-in-out;
+  position: relative;
+  overflow: hidden;
+  margin-top: 40px;
+  width:200px;
+  height:100%;
+}
+.button:before {
+  content: "";
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 100%;
+  width: 3em;
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -4.5em;
+  -webkit-transform: skewX(-45deg) translateX(0);
+          transform: skewX(-45deg) translateX(0);
+  transition: none;
+}
+.button:hover {
+  background-color: #35cff2;
+  color: #fff;
+  border-bottom: 4px solid #1977b5;
+}
+.button:hover:before {
+  -webkit-transform: skewX(-45deg) translateX(13.5em);
+          transform: skewX(-45deg) translateX(13.5em);
+  transition: all 0.5s ease-in-out;
+}
+.img-responsive
+{
+	width:200%;
+	height:200%;
+	margin-top:-10px;
+}
+
+.container-fluid
+{
+	background-color:black;
+	font-family: 'Rammetto One', cursive;
+	font-weight:900;
+}
+
+.navbar-nav li:hover
+{
+	transition: transform 0.5s ease;
+	transform: scale(1.2);
+	border: 2px solid white;
+
+}
+.container{
+	font-family: Montserrat,arial;
+	font-size:16px;
+	margin-top: 100px;
+}
+
+.form-group{
+	line-height:1.5;
+	box-sizing:border-box;
+	border:10px;
+}
+
+#description{
+	height:150px;
+	text-align:none;
+}
