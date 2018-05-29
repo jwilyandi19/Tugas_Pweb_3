@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-	
-	{{$id = Auth::user()->user_id}}
+{{$id = Auth::user()->user_id}}
+<div class="container">
 	<form method = "POST" action = "{{URL::to("/create/$id/created")}}">
 	<input type="hidden" name="questnum" value="{{$quest_num}}">
 	{{csrf_field()}}
@@ -42,6 +42,6 @@
 
 	</form>
 
-
+</div>
 
 @endsection

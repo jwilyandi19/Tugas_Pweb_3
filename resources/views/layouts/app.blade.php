@@ -5,4 +5,9 @@
 	@include('layouts.nav')
     @yield('content')
 </body>
+<style>
+	navbar {
+		margin-bottom: 100px;
+	}
+</style>
 </html>

@@ -53,11 +53,11 @@ class TeacherController extends Controller
     }
 
     public function storequestion(Request $request) {
-    	$quest = $request->only("questnum");
-    	$questnum = intval($quest['questnum']);
-    	for($i=1; $i<=$questnum; $i++) {
-    	$question = $request->only("question[$i]","optiona[$i]","optionb[$i]","optionc[$i]","optiond[$i]","trueanswer[$i]");
+    	$question = $request->all();
     	dd($question);
+    	$questnum = intval($question['questnum']);
+    	$flag = 0;
+    	for($i=1; $i<=$questnum; $i++) {
     		$create = Question::create([
     			'quest_text' => $question["question[$i]"],
     			'opt_a' => $question["optiona[$i]"],
