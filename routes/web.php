@@ -41,5 +41,3 @@ Route::group(['middleware' => 'App\Http\Middleware\TeacherMiddleware'], function
 });
 
 Route::get('/unauthorized','AuthController@unauthorized');
-
-
