@@ -10,10 +10,10 @@ class Question extends Model
 	protected $primaryKey = "quest_id";
 	public $incrementing = true;
 	protected $fillable = [
-		'question','optiona','optionb','optionc','optiond','trueanswer'
+		'quest_text','opt_a','opt_b','opt_c','opt_d','true_answer'
 	];
 
-	
+
     public function course() {
     	return $this->belongsTo(Course::class);
     }
