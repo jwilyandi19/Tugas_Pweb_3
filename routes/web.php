@@ -32,8 +32,7 @@ Route::group(['middleware' => 'App\Http\Middleware\StudentMiddleware'], function
 Route::group(['middleware' => 'App\Http\Middleware\TeacherMiddleware'], function() {
 
 	Route::get('/create','TeacherController@create');
-	Route::post('/create/{contest}','TeacherController@store');
-	Route::get('/create/{contest}/question','TeacherController@createquestion');
+	Route::post('/create/created','TeacherController@store');
 	Route::get('/contest','TeacherController@show');
 	Route::post('/contest/{contest}','TeacherController@editcontest');
 	Route::get('/contest/show/{contest}','TeacherController@showcontest');
