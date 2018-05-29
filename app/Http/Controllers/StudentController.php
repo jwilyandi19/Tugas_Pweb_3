@@ -10,4 +10,11 @@ class StudentController extends Controller
         $this->middleware('auth');
     }
 
+    public function show() {
+      return view('student.contest'); // menampilkan contest2 yg tersedia
+    }
+
+    public function take() {
+      return view('student.take'); // menampilkan contest2 yg tersedia
+    }
 }

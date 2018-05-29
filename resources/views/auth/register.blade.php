@@ -1,65 +1,93 @@
-@extends('layouts.app')
+<!DOCTYPE html>
+<html>
+<head>
+<title>Derulo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="keywords" content="Derulo" />
+  <script type="application/x-javascript">
+    	addEventListener("load", function()
+    	{
+    		setTimeout(hideURLbar, 0);
+    	}, false);
+    	function hideURLbar()
+    	{
+    		window.scrollTo(0,1);
+    	}
+  </script>
+  <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
+  <link href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i" rel="stylesheet">
+</head>
 
-@section('content')
-    <form method ="POST" action="{{route('register')}}">
-    {{ csrf_field() }}
-    <div>
-    <label for="username">Username</label>
-    <input id="username" type="text" name="username" value="{{old('username')}}" required autofocus>
-    @if ($errors->has('username'))
+<body>
+	<div class="main-layouts wrapper">
+		<h1>Derulo SignUp Form</h1>
+		<div class="main-agileinfo">
+			<div class="agileits-top">
+				<form action="{{route('register')}}" method="post">
+          {{ csrf_field() }}
+
+					<input class="text" type="text" name="username" placeholder="Username" required>
+          @if ($errors->has('username'))
             <span>
                 <strong>{{ $errors->first('username') }}</strong>
             </span>
-    @endif
-    </div>
+          @endif
 
-    <div>
-    <label for="email">Email Address</label>
-    <input id="email" type="email" name="email" value="{{old('email')}}" required>
-     @if ($errors->has('email'))
-            <span>
-                <strong>{{ $errors->first('email') }}</strong>
-            </span>
-    @endif
-    </div>
-    <div>
-    <label for="school">School</label>
-    <input id="school" type="text" name="school" value="{{old('school')}}">
-     @if ($errors->has('school'))
-            <span>
-                <strong>{{ $errors->first('school') }}</strong>
-            </span>
-    @endif
-    </div>
-    <div>
-    <label for="password">Password</label>
-    <input id="password" type="password" name="password" required>
-    @if ($errors->has('password'))
-            <span>
-                <strong>{{ $errors->first('password') }}</strong>
-            </span>
-    @endif
-    </div>
-    <div>
-    <label for="password-confirm">Confirm Password</label>
-    <input id="password-confirm" type="password" name="password_confirmation" required>
-     @if ($errors->has('password_confirmation'))
-            <span>
-                <strong>{{ $errors->first('password_confirmation') }}</strong>
-            </span>
-    @endif
-    </div>
-    <div>
-    <label for="user_type">Sign Up as</label>
-    <select id="usertype" name="user_type">
-        <option value="S">Student</option>
-        <option value="T">Teacher</option>
-    </select>
-    </div>
-    <div>
-    <button type="submit">Register</button>
-    </div>
-    </form>
+					<input class="text email" type="email" name="email" placeholder="Email" required>
+          @if ($errors->has('email'))
+                 <span>
+                     <strong>{{ $errors->first('email') }}</strong>
+                 </span>
+          @endif
 
+          <input class="text" type="text" name="school" placeholder="Sekolah" required>
+          @if ($errors->has('school'))
+                 <span>
+                     <strong>{{ $errors->first('school') }}</strong>
+                 </span>
+          @endif
+          <br>
 
-@endsection
+					<input class="text" type="password" name="password" placeholder="Password" required>
+          @if ($errors->has('password'))
+                 <span>
+                     <strong>{{ $errors->first('password') }}</strong>
+                 </span>
+          @endif
+
+					<input class="text lpass" type="password" name="password_confirmation" placeholder="Konfirmasi Password" required>
+          @if ($errors->has('password_confirmation'))
+                 <span>
+                     <strong>{{ $errors->first('password_confirmation') }}</strong>
+                 </span>
+          @endif
+
+          <label for="user_type" style="color:white;">Dafter sebagai</label>
+          <select id="usertype" name="user_type">
+              <option value="S">Student</option>
+              <option value="T">Teacher</option>
+          </select>
+
+					<input type="submit" value="Daftar">
+				</form>
+				<p>Sudah memiliki akun? <a href="{{route('login')}}"> Login sekarang!</a></p>
+			</div>
+		</div>
+
+		<ul class="lsg-bubbles">
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+			<li></li>
+		</ul>
+	</div>
+	<!-- //main -->
+</body>
+</html>

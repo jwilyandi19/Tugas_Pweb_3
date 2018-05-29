@@ -25,7 +25,8 @@ Route::post('/register','AuthController@store');
 
 Route::group(['middleware' => 'App\Http\Middleware\StudentMiddleware'], function() {
 
-	Route::get('/student','AuthController@student');
+  Route::get('/take','StudentController@show');
+  Route::post('/take/{contest}','StudentController@take');
 
 });
 

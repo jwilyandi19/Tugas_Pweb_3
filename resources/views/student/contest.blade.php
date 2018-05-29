@@ -7,12 +7,9 @@
     @endif
     <a href="{{route('logout')}}">
 
-    Logout</a> 
-    {{Auth::user()->username}}
-    @if(Auth::user()->user_type=="S")
-        Student
-    @elseif(Auth::user()->user_type=="T")
-        Teacher
-    @endif
+    Logout</a>
+
+    <p>This displays contest available</p>
+
 
 @endsection
