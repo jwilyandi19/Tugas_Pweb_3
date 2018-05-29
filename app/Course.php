@@ -11,7 +11,7 @@ class Course extends Model
 	protected $primaryKey = "cour_id";
     public $incrementing = true;
 	protected $fillable = [
-		'user_id','cour_name','cour_desc'
+		'user_id','cour_name','cour_desc','quest_num'
 
 	];
 

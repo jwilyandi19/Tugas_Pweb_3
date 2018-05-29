@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use App\Course;
 use App\Question;
 class TeacherController extends Controller
@@ -34,18 +35,21 @@ class TeacherController extends Controller
     		'user_id' => $user_id,
     		'cour_name' => $credentials['cour_name'],
     		'cour_desc' => $credentials['cour_desc'],
+    		'quest_num' => $credentials['quest_num'],
     	]);
     	//dd($create);
 
     	$id = $create['cour_id'];
 
-    	return redirect('/create/'.$id);
+    	return redirect()->action('TeacherController@createquestion',['id' => $id]);
 
 
     }
 
-    public function createquestion() {
-    	return view('teacher.createquestion');
+    public function createquestion($id) {
+
+    	$numberquestion = DB::table('courses')->where('cour_id', $id)->value('quest_num');
+    	return view('teacher.createquestion')->with('quest_num',$numberquestion);
     }
 
     public function storequestion() {
