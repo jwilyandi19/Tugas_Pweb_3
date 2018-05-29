@@ -54,17 +54,16 @@ class TeacherController extends Controller
 
     public function storequestion(Request $request) {
     	$question = $request->all();
-    	dd($question);
     	$questnum = intval($question['questnum']);
     	$flag = 0;
     	for($i=1; $i<=$questnum; $i++) {
     		$create = Question::create([
-    			'quest_text' => $question["question[$i]"],
-    			'opt_a' => $question["optiona[$i]"],
-    			'opt_b' => $question["optionb[$i]"],
-    			'opt_c' => $question["optionc[$i]"],
-    			'opt_d' => $question["optiond[$i]"],
-    			'true_answer' => $question["trueanswer[$i]"],
+    			'quest_text' => $question['question'][$i],
+    			'opt_a' => $question['optiona'][$i],
+    			'opt_b' => $question['optionb'][$i],
+    			'opt_c' => $question['optionc'][$i],
+    			'opt_d' => $question['optiond'][$i],
+    			'true_answer' => $question['trueanswer'][$i],
     		]);
 
     	}
