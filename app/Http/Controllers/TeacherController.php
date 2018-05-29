@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use App\Course;
+use App\Question;
 class TeacherController extends Controller
 {
 	public function __construct(){
@@ -14,24 +17,29 @@ class TeacherController extends Controller
     }
 
     public function store(Request $request) {
-    	$credentials = $request->only('cour_name','cour_desc');
+    	$credentials = $request->only('cour_name','cour_desc','quest_num');
     	$validator = Validator::make($credentials,[
-    		'cour_name' => 'required'|
-    		'cour_desc' => 'required'|
+    		'cour_name' => 'required',
+    		'cour_desc' => 'required',
+    		'quest_num' => 'required|numeric',
     	]);
 
     	if($validator->fails()) {
     		return redirect('/create')->withErrors($validator);
     	}
+    	$user_id = Auth::user()->user_id;
+    	//dd($user_id);
 
     	$create = Course::create([
+    		'user_id' => $user_id,
     		'cour_name' => $credentials['cour_name'],
     		'cour_desc' => $credentials['cour_desc'],
     	]);
+    	//dd($create);
 
     	$id = $create['cour_id'];
 
-    	return redirect('/create/'.$id.'/');
+    	return redirect('/create/'.$id);
 
 
     }
@@ -40,8 +48,8 @@ class TeacherController extends Controller
     	return view('teacher.createquestion');
     }
 
-    public function showquestion() {
-    	
+    public function storequestion() {
+
     }
 
     public function show() {
