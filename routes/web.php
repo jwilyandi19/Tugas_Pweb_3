@@ -34,7 +34,7 @@ Route::group(['middleware' => 'App\Http\Middleware\TeacherMiddleware'], function
 	Route::get('/create','TeacherController@create');
 	Route::post('/create/created','TeacherController@store');
 	Route::get('/create/{contest}/','TeacherController@createquestion');
-	Route::post('/create/{contest}/created','TeacherController@storequestion');
+	Route::post('/create/{contest}/created','TeacherController@storequestion')->name('postingquestion');
 	Route::get('/contest','TeacherController@show');
 	Route::post('/contest/{contest}','TeacherController@editcontest');
 	Route::get('/contest/show/{contest}','TeacherController@showcontest');
