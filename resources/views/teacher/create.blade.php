@@ -41,8 +41,8 @@
 		{{ csrf_field() }}
 
 	    <div class="form-group">
-	      <label for="contest">Nama kontes (wajib diisi)</label>
-	      <input type="contest" class="form-control input-lg" id="contest" placeholder="" name="contest" required>
+	      <label for="cour_name">Nama kontes (wajib diisi)</label>
+	      <input type="contest" class="form-control input-lg" id="contest" placeholder="" name="cour_name" required>
 					@if ($errors->has('contest'))
 										<span>
 												<strong>{{ $errors->first('contest') }}</strong>
@@ -50,8 +50,8 @@
 					@endif
 	    </div>
 	    <div class="form-group">
-	      <label for="description">Deskripsi kontes (wajib diisi)</label>
-	      <input type="description" class="form-control input-lg" id="description" placeholder="Ex: A #math #blindcontest to introduce the basics of #algebra to #grade8" name="description" required >
+	      <label for="cour_desc">Deskripsi kontes (wajib diisi)</label>
+	      <input type="description" class="form-control input-lg" id="description" placeholder="Ex: A #math #blindcontest to introduce the basics of #algebra to #grade8" name="cour_desc" required >
 					@if ($errors->has('description'))
 										<span>
 												<strong>{{ $errors->first('description') }}</strong>
@@ -59,8 +59,8 @@
 					@endif
 			</div>
 	    <div class="form-group">
-	      <label for="number">Jumlah pertanyaan (max 10)</label>
-	      <input type="number" class="form-control input-lg" id="number" placeholder="" name="number">
+	      <label for="quest_num">Jumlah pertanyaan (max 10)</label>
+	      <input type="number" class="form-control input-lg" id="number" placeholder="" name="quest_num">
 					@if ($errors->has('number'))
 										<span>
 												<strong>{{ $errors->first('number') }}</strong>
