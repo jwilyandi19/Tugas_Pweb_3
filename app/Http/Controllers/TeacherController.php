@@ -52,7 +52,43 @@ class TeacherController extends Controller
     	return view('teacher.createquestion')->with('quest_num',$numberquestion);
     }
 
-    public function storequestion() {
+    public function storequestion(Request $request) {
+    	$question = $request->all();
+    	$questnum = intval($question['questnum']);
+    	$flag = 0;
+    	for($i=1; $i<=$questnum; $i++) {
+    		$validator = Validator::make($question,[
+    			"question['$i']" => 'required',
+    			"optiona['$i']" => 'required',
+    			"optionb['$i']" => 'required',
+    			"optionc['$i']" => 'required',
+    			"optiond['$i']" => 'required',
+    			"trueanswer['$i']" => 'required|regex:[A-D]|max:1',
+
+    		]);
+    		if($validator->fails()) {
+    			$flag = 1;
+    			return redirect()->back()->withErrors($validator);
+    		}
+
+    		if($flag == 1) {
+    		$create = Question::create([
+    			'quest_text' => $question["question['$i']"];
+    			'opt_a' = $question["optiona['$i']"];
+    			'opt_b' = $question["optionb['$i']"];
+    			'opt_c' = $question["optionc['$i']"];
+    			'opt_d' = $question["optiond['$i']"];
+    			'true_answer' = $question["trueanswer['$i']"];
+    		]);
+    		}
+
+    	}
+
+
+    	return redirect('/home');
+
+
+
 
     }
 
